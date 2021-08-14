@@ -1,12 +1,13 @@
-package com.example.demo.student;
+package com.example.demo.config;
 
+import com.example.demo.model.Student;
+import com.example.demo.repository.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 
 @Configuration
 public class StudentConfig {
@@ -34,9 +35,9 @@ public class StudentConfig {
 
             );
 
-            repository.saveAll(
-                    List.of(mariam, alex, Tom)
-            );
+//            repository.saveAll(
+//                    List.of(mariam, alex, Tom)
+//            );
         };
     }
 }
