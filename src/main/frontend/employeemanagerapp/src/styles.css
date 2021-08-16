@@ -153,7 +153,8 @@ body styles
 
 .container{
   width: 100%;
-  min-height: 81%;
+  min-height: 85%;
+  max-height: max-content;
   overflow: visible;
   float: left;
   background-image: url("https://cdn.suwalls.com/wallpapers/digital-art/modern-office-47514-1920x1080.jpg") ;
@@ -380,7 +381,6 @@ footer{
 
 .form-input::placeholder{
   color: red;
-
 }
 
 .modal-form-buttons{
@@ -406,8 +406,12 @@ footer{
   margin-right: 10px;
 }
 
-.form-button:hover{
+.form-button:hover:enabled{
   animation: buttonActive 2500ms infinite;
+}
+
+.form-button:disabled{
+  background-color: dimgray;
 }
 
 .back-button{

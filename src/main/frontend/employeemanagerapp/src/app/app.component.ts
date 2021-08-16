@@ -144,15 +144,27 @@ export class AppComponent implements OnInit {
       }
     );
   }
-  public editEmployee(editForm: NgForm):void{
-    this.employeeService.addEmployee(editForm.value).subscribe(
+  public editEmployee(employee: Employee):void{
+    this.employeeService.updateEmployee(employee).subscribe(
       (response: Employee) => {
         console.log(response);
         this.getEmployees();
-        editForm.reset();
+        hideEdit();
       },(error: HttpErrorResponse) =>{
         alert(error.message);
-        editForm.reset();
+      }
+    );
+  }
+  public deleteEmployee():void{
+    // @ts-ignore
+    this.employeeService.deleteEmployee(this.modalEmployee.id).subscribe(
+      (response: void) => {
+        this.modalEmployee = undefined;
+        this.getEmployees();
+        hideDelete();
+      },(error: HttpErrorResponse) => {
+        alert(error.message);
+        hideDelete();
       }
     );
   }

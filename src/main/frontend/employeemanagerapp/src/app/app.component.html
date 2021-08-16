@@ -91,8 +91,8 @@
           {{modalTitle}}
         </h2>
       </div>
-      <div class="modal-form-body modal-div">
         <form #addForm='ngForm' (ngSubmit)="addEmployee(addForm)">
+        <div class="modal-form-body modal-div">
           <div class="form-div">
             <label for="name" class="form-label">Name: </label>
             <input type="text" ngModel id="name"  name="name" required placeholder="Name:  " class="form-input">
@@ -113,16 +113,16 @@
             <label for="imageUrl" class="form-label">imageUrl: </label>
             <input type="text" ngModel id="imageUrl"  name="imageUrl" required placeholder="imageUrl: " class="form-input">
           </div>
+        </div>
+        <div class="modal-form-buttons modal-div" >
+          <button type="button" (click)="onClickHideAdd()" class="form-button">
+            Back
+          </button>
+          <button [disabled]="addForm.invalid" type="submit" class="form-button">
+            Add Employee
+          </button>
+        </div>
         </form>
-      </div>
-      <div class="modal-form-buttons modal-div" >
-        <button type="button" (click)="onClickHideAdd()" class="form-button">
-          Back
-        </button>
-        <button [disabled]="addForm.invalid" type="submit" class="form-button">
-          Add Employee
-        </button>
-      </div>
     </div>
   </div>
 </div>
@@ -136,45 +136,44 @@
           {{modalTitle}}
         </h2>
       </div>
-      <div class="modal-form-body modal-div" >
-        <form #editForm='ngForm' (ngSubmit)="editEmployee(editForm)">
+        <form #editForm='ngForm' >
+        <div class="modal-form-body modal-div" >
           <div class="edit-form-img">
             <img src="{{modalEmployee?.imageUrl}}" alt="photo" class="emp-img">
           </div>
           <div class="form-div">
             <label for="name" class="form-label">Name: </label>
-            <input type="text" ngModel id="name" value="{{modalEmployee?.name}}" name="name" required placeholder="Name..." class="form-input">
+            <input type="text" ngModel="{{modalEmployee?.name}}" id="name" name="name" required placeholder="Name..." class="form-input">
           </div>
           <div class="form-div">
             <label for="email" class="form-label">Email: </label>
-            <input type="email" ngModel id="email" value="{{modalEmployee?.email}}"  name="email" required placeholder="Email..." class="form-input">
+            <input type="email" ngModel="{{modalEmployee?.email}}" id="email" name="email" required placeholder="Email..." class="form-input">
           </div>
           <div class="form-div">
             <label for="jobTitle" class="form-label">Job Title: </label>
-            <input type="text" ngModel id="jobTitle" value="{{modalEmployee?.jobTitle}}"  name="jobTitle" required placeholder="Job Title..." class="form-input">
+            <input type="text" ngModel="{{modalEmployee?.jobTitle}}" id="jobTitle" name="jobTitle" required placeholder="Job Title..." class="form-input">
           </div>
           <div class="form-div">
             <label for="phone" class="form-label">Phone: </label>
-            <input type="text" ngModel id="phone" value="{{modalEmployee?.phone}}"  name="phone" required placeholder="Phone..." class="form-input">
+            <input type="text" ngModel="{{modalEmployee?.phone}}" id="phone" name="phone" required placeholder="Phone..." class="form-input">
           </div>
           <div class="form-div">
             <label for="imageUrl" class="form-label">imageUrl: </label>
-            <input type="text" ngModel id="imageUrl" value="{{modalEmployee?.imageUrl}}"  name="imageUrl" required placeholder="imageUrl..." class="form-input">
+            <input type="text" ngModel="{{modalEmployee?.imageUrl}}" id="imageUrl"  name="imageUrl" required placeholder="imageUrl..." class="form-input">
           </div>
-          <div class="form-div">
-            <label for="employeeCode" class="form-label">employeeCode: </label>
-            <input type="text" ngModel id="employeeCode" value="{{modalEmployee?.employeeCode}}"  name="employeeCode" required placeholder="employeeCode..." class="form-input">
-          </div>
+
+          <input type="hidden" ngModel="{{modalEmployee?.id}}" id="id" name="id" required class="form-input">
+          <input type="hidden" ngModel="{{modalEmployee?.employeeCode}}" id="employeeCode" name="employeeCode" required placeholder="employeeCode..." class="form-input">
+        </div>
+        <div class="modal-form-buttons modal-div" >
+          <button type="button" (click)="onClickHideEdit()"  class="form-button">
+            Back
+          </button>
+          <button [disabled]="editForm.invalid" (click)="editEmployee(editForm.value)" type="submit" class="form-button">
+            Save Changes
+          </button>
+        </div>
         </form>
-      </div>
-      <div class="modal-form-buttons modal-div" >
-        <button type="button" (click)="onClickHideEdit()"  class="form-button">
-          Back
-        </button>
-        <button [disabled]="addForm.invalid" type="submit" class="form-button">
-          Save Changes
-        </button>
-      </div>
     </div>
   </div>
 </div>
@@ -188,17 +187,19 @@
           {{modalTitle}}
         </h2>
       </div>
-      <div class="modal-form-body">
+      <form #delForm="ngForm" (ngSubmit)="deleteEmployee()">
+        <div class="modal-form-body">
 
-      </div>
-      <div class="modal-form-buttons">
-        <button type="button" class="form-button2 back-button" (click)="onClickHideDelete()">
-          Back
-        </button>
-        <button type="submit" class="form-button2 delete-button">
-          Delete
-        </button>
-      </div>
+        </div>
+        <div class="modal-form-buttons">
+          <button type="button" class="form-button2 back-button" (click)="onClickHideDelete()">
+            Back
+          </button>
+          <button type="submit" class="form-button2 delete-button">
+            Delete
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
