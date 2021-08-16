@@ -95,14 +95,18 @@ nav{
 }
 
 .search-div{
+  position: relative;
+  right: -50px;
   min-height: 100%;
   min-width: 20%;
   max-width: 50%;
-  float: left;
+  float: right;
   padding: 5px;
-  border: 1px white solid;
-  border-radius: 15%;
   margin-top: 15px;
+  border:0;
+  padding-bottom: 0px;
+  margin-bottom: 3px;
+  border-bottom: 3px solid grey;
 }
 /* H4 of navbar*/
 .app-title{
@@ -118,13 +122,29 @@ nav{
 
 /* Search employee input*/
 .name-src{
-  min-width: 20%;
-  max-width: 100%;
-  background-color: lightgray;
-  color: black;
+  height: 100%;
+  min-width: 40px;
+  max-width: 200;
+  background-color: dimgray;
+  color: white;
   font-family: "Comic Sans MS", serif;
   height: 100%;
   border: 0;
+  text-align: center;
+
+  outline: 0;
+}
+.name-src::placeholder{
+  color: white;
+  text-decoration:underline 1px white;
+
+}
+.name-src:focus{
+  outline: 0;
+  border: 0;
+}
+.name-src-label{
+
 }
 
 /***************
@@ -340,20 +360,27 @@ footer{
 .form-label{
   position: relative;
   left: 40px;
+  text-underline: 1px solid black;
 }
 .form-input{
   position: absolute;
   right: 40px;
-  border: 1px solid black;
+  border: 0;
   color: black;
-  background: whitesmoke;
+  background-color: lightgray;
   width: 60%;
   border-radius: 5%;
+  outline: 0;
+  text-decoration: 1px solid black underline;
+  text-underline-offset: 2px;
+  margin-top: 3px;
+  font-size: medium;
+  text-overflow:ellipsis;
 }
 
-.form-input:empty{
+.form-input::placeholder{
   color: red;
-  border: 1px solid red;
+
 }
 
 .modal-form-buttons{
@@ -384,8 +411,17 @@ footer{
 }
 
 .back-button{
+  background-color: gray;
+}
+
+.back-button:hover{
   background-color: dimgray;
 }
+
 .delete-button{
   background-color: red;
+}
+
+.delete-button:hover{
+  background-color: darkred;
 }

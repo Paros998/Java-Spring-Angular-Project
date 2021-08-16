@@ -13,7 +13,8 @@
     </div>
     <div class="nav-div search-div">
       <form>
-        <input type="search" class="name-src" id="searchName" name="name" placeholder="Search employee.......">
+        <label for="searchName" class="name-src-label">Search by name:</label>
+        <input type="search" class="name-src" id="searchName" name="name" placeholder="employee name .......">
       </form>
     </div>
   </nav>
@@ -93,24 +94,24 @@
       <div class="modal-form-body modal-div">
         <form #addForm='ngForm' (ngSubmit)="addEmployee(addForm)">
           <div class="form-div">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" ngModel id="name"  name="name" required placeholder="Name" class="form-input">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" ngModel id="name"  name="name" required placeholder="Name:  " class="form-input">
           </div>
           <div class="form-div">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" ngModel id="email"  name="email" required placeholder="Email" class="form-input">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email" ngModel id="email"  name="email" required placeholder="Email: " class="form-input">
           </div>
           <div class="form-div">
-            <label for="jobTitle" class="form-label">Job Title</label>
-            <input type="text" ngModel id="jobTitle"  name="jobTitle" required placeholder="Job Title" class="form-input">
+            <label for="jobTitle" class="form-label">Job Title: </label>
+            <input type="text" ngModel id="jobTitle"  name="jobTitle" required placeholder="Job Title: " class="form-input">
           </div>
           <div class="form-div">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" ngModel id="phone"  name="phone" required placeholder="Phone" class="form-input">
+            <label for="phone" class="form-label">Phone: </label>
+            <input type="text" ngModel id="phone"  name="phone" required placeholder="Phone:" class="form-input">
           </div>
           <div class="form-div">
-            <label for="imageUrl" class="form-label">imageUrl</label>
-            <input type="text" ngModel id="imageUrl"  name="imageUrl" required placeholder="imageUrl" class="form-input">
+            <label for="imageUrl" class="form-label">imageUrl: </label>
+            <input type="text" ngModel id="imageUrl"  name="imageUrl" required placeholder="imageUrl: " class="form-input">
           </div>
         </form>
       </div>
@@ -141,28 +142,28 @@
             <img src="{{modalEmployee?.imageUrl}}" alt="photo" class="emp-img">
           </div>
           <div class="form-div">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" ngModel id="name" value="{{modalEmployee?.name}}" name="name" required placeholder="Name" class="form-input">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" ngModel id="name" value="{{modalEmployee?.name}}" name="name" required placeholder="Name..." class="form-input">
           </div>
           <div class="form-div">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" ngModel id="email" value="{{modalEmployee?.email}}"  name="email" required placeholder="Email" class="form-input">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email" ngModel id="email" value="{{modalEmployee?.email}}"  name="email" required placeholder="Email..." class="form-input">
           </div>
           <div class="form-div">
-            <label for="jobTitle" class="form-label">Job Title</label>
-            <input type="text" ngModel id="jobTitle" value="{{modalEmployee?.jobTitle}}"  name="jobTitle" required placeholder="Job Title" class="form-input">
+            <label for="jobTitle" class="form-label">Job Title: </label>
+            <input type="text" ngModel id="jobTitle" value="{{modalEmployee?.jobTitle}}"  name="jobTitle" required placeholder="Job Title..." class="form-input">
           </div>
           <div class="form-div">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" ngModel id="phone" value="{{modalEmployee?.phone}}"  name="phone" required placeholder="Phone" class="form-input">
+            <label for="phone" class="form-label">Phone: </label>
+            <input type="text" ngModel id="phone" value="{{modalEmployee?.phone}}"  name="phone" required placeholder="Phone..." class="form-input">
           </div>
           <div class="form-div">
-            <label for="imageUrl" class="form-label">imageUrl</label>
-            <input type="text" ngModel id="imageUrl" value="{{modalEmployee?.imageUrl}}"  name="imageUrl" required placeholder="imageUrl" class="form-input">
+            <label for="imageUrl" class="form-label">imageUrl: </label>
+            <input type="text" ngModel id="imageUrl" value="{{modalEmployee?.imageUrl}}"  name="imageUrl" required placeholder="imageUrl..." class="form-input">
           </div>
           <div class="form-div">
-            <label for="employeeCode" class="form-label">employeeCode</label>
-            <input type="text" ngModel id="employeeCode" value="{{modalEmployee?.employeeCode}}"  name="employeeCode" required placeholder="employeeCode" class="form-input">
+            <label for="employeeCode" class="form-label">employeeCode: </label>
+            <input type="text" ngModel id="employeeCode" value="{{modalEmployee?.employeeCode}}"  name="employeeCode" required placeholder="employeeCode..." class="form-input">
           </div>
         </form>
       </div>
