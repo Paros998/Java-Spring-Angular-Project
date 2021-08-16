@@ -14,7 +14,7 @@
     <div class="nav-div search-div">
       <form>
         <label for="searchName" class="name-src-label">Search by name:</label>
-        <input type="search" class="name-src" id="searchName" name="name" placeholder="employee name .......">
+        <input #key="ngModel" ngModel type="search" (ngModelChange)="searchEmployyes(key.value)" class="name-src" id="searchName" name="name" placeholder="employee name ......." >
       </form>
     </div>
   </nav>
@@ -182,11 +182,11 @@
 <div class="modal" id="delete-modal">
   <div class="modal-background">
     <div class="modal-form delete-form">
-      <div class="modal-form-head">
+      <div class="modal-form-head" >
         <h2>
           {{modalTitle}}
         </h2>
-      </div>
+      </div >
       <form #delForm="ngForm" (ngSubmit)="deleteEmployee()">
         <div class="modal-form-body">
 
