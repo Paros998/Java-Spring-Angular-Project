@@ -1,0 +1,391 @@
+/* You can add global styles to this file, and also import other style files */
+/******************* Animations *************************/
+@keyframes buttonActive {
+  0%{
+    color: black;
+    background: whitesmoke;
+  }
+  50%{
+    color: whitesmoke;
+    background: black;
+  }
+  100%{
+    color: black;
+    background: whitesmoke;
+  }
+}
+
+@keyframes addButtonActive {
+  0%{
+    background: dimgray;
+    color: white;
+  }
+  50%{
+    background: whitesmoke;
+    color: dimgray;
+  }
+  100%{
+    background: dimgray;
+    color: white;
+  }
+}
+.addButtonActiveClass{
+  animation: addButtonActive 2500ms infinite;
+}
+/*Global elements styled*/
+html{
+  margin: 0;
+  padding: 0;
+  height: 100% ;
+  width: 100%;
+  font-family: "Comic Sans MS", serif;
+}
+
+body {
+  height: 100% ;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.normal-web{
+  height: 100%;
+  z-index: 100;
+}
+
+/***************
+nav styles
+ */
+.nav{
+  background-color: dimgray;
+  width: 100%;
+  min-height: 5%;
+  max-height: 50%;
+  margin: 0;
+  padding:0;
+  float: left;
+  color: white;
+}
+nav{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.nav-div{
+  height: 100%;
+  float: left;
+  margin-right: 50px;
+}
+
+/* 3 navbar divs*/
+.title-div{
+  min-height: 100%;
+  width: 30%;
+}
+.add-div{
+  height: 100%;
+  padding: 10px;
+  border: 1px white solid;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.search-div{
+  min-height: 100%;
+  min-width: 20%;
+  max-width: 50%;
+  float: left;
+  padding: 5px;
+  border: 1px white solid;
+  border-radius: 15%;
+  margin-top: 15px;
+}
+/* H4 of navbar*/
+.app-title{
+  height: 100%;
+  margin-bottom: 20px;
+}
+/* Add Employee button*/
+.add-a{
+  height: 100%;
+  color: white;
+  background: dimgray;
+}
+
+/* Search employee input*/
+.name-src{
+  min-width: 20%;
+  max-width: 100%;
+  background-color: lightgray;
+  color: black;
+  font-family: "Comic Sans MS", serif;
+  height: 100%;
+  border: 0;
+}
+
+/***************
+body styles
+ */
+
+.container{
+  width: 100%;
+  min-height: 81%;
+  overflow: visible;
+  float: left;
+  background-image: url("https://cdn.suwalls.com/wallpapers/digital-art/modern-office-47514-1920x1080.jpg") ;
+  background-position: center ;
+  background-repeat: no-repeat ;
+  background-attachment: fixed ;
+}
+/* One Employee card*/
+.emp-card{
+  background: lightgray ;
+  float: left;
+  margin: 40px;
+  padding: 10px;
+  height: 310px;
+  width: 200px;
+  border: 2px white solid;
+  border-radius: 5%;
+  opacity: 0.9;
+}
+
+.emp-card:hover{
+  opacity: 1.0;
+}
+
+.emp-div{
+  width: 100%;
+  text-align: center;
+  float: left;
+  align-content: center;
+  border-bottom: 1px white solid;
+  margin-bottom: 20px;
+}
+
+/* 4 divs of employee card*/
+.fst{
+  height: 100px;
+  padding: 2px;
+}
+.snd{
+  height: 50px;
+}
+.trd{
+  height: 50px;
+}
+.fth{
+  height: 50px;
+}
+
+/* div holding image*/
+.img-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+/*image of employee*/
+.emp-img{
+  height: 100px;
+  max-width: 100%;
+  object-fit: scale-down;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+/* div with name and job*/
+.name-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+.name-h4{
+  margin: 5px;
+}
+
+.employee-text{
+  padding-top: 20px;
+}
+
+/* 2 divs with email ,phone and icons*/
+.sub-div{
+  height: 100%;
+  width: 80%;
+  float: left;
+}
+
+.icon-div{
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+
+/* image icon */
+.icon{
+  height: 20px;
+  max-width: 100%;
+  object-fit: scale-down;
+  vertical-align: middle;
+  padding: 3px;
+  float: right;
+}
+
+.icon-hover:hover{
+  height: 30px;
+}
+
+/* div with social links icons*/
+.sc-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+/* div with edit and delete actions*/
+.act-but-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+
+/* error display div*/
+.error-div{
+  float: left;
+  width: 100%;
+  color: white;
+  text-decoration: black;
+  background: dimgray;
+  display: block;
+}
+
+.error-activated{
+  display: block;
+}
+/***************
+footer styles
+ */
+
+footer{
+  width: 100%;
+  height: 6%;
+  min-height: 10%;
+  max-height: 50%;
+  text-align: center;
+  background-color: lightgray;
+  float: left;
+}
+
+/* Modals */
+/*Modal background for every modal*/
+
+.modal-background{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
+
+
+}
+.modal{
+ display: none;
+  z-index: 200;
+}
+.modal-form{
+  position: fixed;
+  top: 0;
+  right: 500px;
+  left: 500px;
+  border-radius: 5%;
+  background-color: lightgray;
+  border: 2px solid black;
+  opacity: 0.9;
+}
+.add-form{
+  bottom: 380px;
+}
+.edit-form{
+  bottom: 200px;
+}
+.delete-form{
+  bottom: 540px;
+}
+
+
+.modal-div{
+  margin-bottom: 20px;
+  border-bottom: 1px black solid;
+}
+
+.modal-form-head{
+  text-align: center;
+}
+
+.modal-form-body{
+
+}
+.edit-form-img{
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+.form-div{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.form-label{
+  position: relative;
+  left: 40px;
+}
+.form-input{
+  position: absolute;
+  right: 40px;
+  border: 1px solid black;
+  color: black;
+  background: whitesmoke;
+  width: 60%;
+  border-radius: 5%;
+}
+
+.form-input:empty{
+  color: red;
+  border: 1px solid red;
+}
+
+.modal-form-buttons{
+  padding-bottom: 20px;
+  text-align: center;
+}
+.hidden-button{
+  display: none;
+}
+.form-button{
+  border: black 3px solid;
+  color: black;
+  background: whitesmoke;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+}
+.form-button2{
+  border: white 1px solid;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  margin-right: 10px;
+}
+
+.form-button:hover{
+  animation: buttonActive 2500ms infinite;
+}
+
+.back-button{
+  background-color: dimgray;
+}
+.delete-button{
+  background-color: red;
+}

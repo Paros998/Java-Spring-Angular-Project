@@ -8,11 +8,11 @@
         <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com</groupId>
+    <artifactId>patryk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>patryk</name>
+    <description>Demo project for Spring Boot with Angular</description>
     <properties>
         <java.version>16</java.version>
         <maven.compiler.source>16</maven.compiler.source>
