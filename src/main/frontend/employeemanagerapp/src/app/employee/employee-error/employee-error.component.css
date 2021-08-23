@@ -1,0 +1,13 @@
+/* error display div*/
+.error-div{
+  float: left;
+  width: 100%;
+  color: white;
+  text-decoration: black;
+  background: dimgray;
+  display: block;
+}
+
+.error-activated{
+  display: block;
+}

@@ -1,0 +1,136 @@
+/* Modals */
+/*Modal background for every modal*/
+
+.modal-background{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
+}
+.modal{
+  z-index: 200;
+}
+.modal-form{
+  position: fixed;
+  top: 0;
+  right: 500px;
+  left: 500px;
+  border-radius: 5%;
+  background-color: lightgray;
+  border: 2px solid black;
+  opacity: 0.9;
+}
+.add-form{
+  bottom: 380px;
+}
+.edit-form{
+  bottom: 200px;
+}
+.delete-form{
+  bottom: 540px;
+}
+
+
+.modal-div{
+  margin-bottom: 20px;
+  border-bottom: 1px black solid;
+}
+
+.modal-form-head{
+  text-align: center;
+}
+
+.modal-form-body{
+
+}
+.edit-form-img{
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+.form-div{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.form-label{
+  position: relative;
+  left: 40px;
+  text-underline: 1px solid black;
+}
+.form-input{
+  position: absolute;
+  right: 40px;
+  border: 0;
+  color: black;
+  background-color: lightgray;
+  width: 60%;
+  border-radius: 5%;
+  outline: 0;
+  text-decoration: 1px solid black underline;
+  text-underline-offset: 2px;
+  margin-top: 3px;
+  font-size: medium;
+  text-overflow:ellipsis;
+}
+
+.form-input::placeholder{
+  color: red;
+}
+
+.modal-form-buttons{
+  padding-bottom: 20px;
+  text-align: center;
+}
+.hidden-button{
+  display: none;
+}
+.form-button{
+  border: black 3px solid;
+  color: black;
+  background: whitesmoke;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+}
+.form-button2{
+  border: white 1px solid;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  margin-right: 10px;
+}
+
+.form-button:hover:enabled{
+  animation: buttonActive 2500ms infinite;
+}
+
+.form-button:disabled{
+  background-color: dimgray;
+}
+
+.back-button{
+  background-color: gray;
+}
+
+.back-button:hover{
+  background-color: dimgray;
+}
+
+.delete-button{
+  background-color: red;
+}
+
+.delete-button:hover{
+  background-color: darkred;
+}
+
+.form-valid-error{
+  display: block;
+  width: 100%;
+  color: red;
+  background-color:rgba(255, 37, 37, 0.212);
+  text-align: left;
+  padding-left: 40px;
+}

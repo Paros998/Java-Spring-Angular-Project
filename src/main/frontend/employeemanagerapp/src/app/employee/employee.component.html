@@ -1,0 +1,47 @@
+
+  <div *ngFor="let employee of getEmployeesFromApp()" class="emp-card">
+    <div class="fst emp-div">
+      <div class="img-div">
+        <img src="{{employee?.imageUrl}}" alt="employee img" class="emp-img">
+      </div>
+      <div class="name-div">
+        <h4 class="name-h4">
+          {{employee?.name}}
+        </h4>
+        <span class="employee-text">
+          {{employee?.jobTitle}}
+        </span>
+      </div>
+    </div>
+    <div class="snd emp-div">
+      <div class="sub-div">
+        <span class="employee-text">Email: {{employee?.email}}</span>
+      </div>
+      <div class="icon-div">
+        <img src="../assets/email.png" alt="email" class="icon email-icon">
+      </div>
+    </div>
+    <div class="trd emp-div">
+      <div class="sub-div">
+        <span class="employee-text">Phone : {{employee?.phone}}</span>
+      </div>
+      <div class="icon-div">
+        <img src="../assets/phone.png" alt="phone" class="icon phone-icon">
+      </div>
+    </div>
+    <div class="fth emp-div">
+      <div class="sc-div">
+        <img src="../assets/fb.jpg" alt="fb" class="icon fb-icon">
+        <img src="../assets/tw.jpg" alt="tw" class="icon tw-icon">
+        <img src="../assets/ggl.jpg" alt="ggl" class="icon ggl-icon">
+      </div>
+      <div class="act-but-div">
+        <a (click)="this.openModal(employee,'edit')">
+          <img src="../assets/edit.png" alt="edit" class="icon icon-hover">
+        </a>
+        <a (click)="this.openModal(employee,'delete')">
+          <img src="../assets/delete.jpg" alt="delete" class="icon icon-hover">
+        </a>
+      </div>
+    </div>
+

@@ -1,0 +1,138 @@
+<ng-container *ngIf="modalControl.active" [ngSwitch]="modalControl.mode">
+
+<!--Modal Add Employee-->
+<div class="modal" id="add-modal" *ngSwitchCase="'add'">
+  <div class="modal-background">
+    <div class="modal-form add-form">
+      <div class="modal-form-head modal-div">
+        <h2>
+          {{modalTitle}}
+        </h2>
+      </div>
+      <form #addForm='ngForm' (ngSubmit)="addEmployee(addForm)">
+        <div class="modal-form-body modal-div">
+          <div class="form-div">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" #nameValid='ngModel' ngModel id="name" name="name" required placeholder="Name:  " class="form-input">
+            <div class="form-valid-error" *ngIf="nameValid.touched && nameValid.invalid">Name is required!</div>
+          </div>
+          <div class="form-div">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email" #emailValid='ngModel' ngModel id="email" name="email" required placeholder="Email: " class="form-input">
+            <div class="form-valid-error" *ngIf="emailValid.touched && emailValid.invalid">Email is required!</div>
+          </div>
+          <div class="form-div">
+            <label for="jobTitle" class="form-label">Job Title: </label>
+            <input type="text" #jobValid='ngModel' ngModel id="jobTitle" name="jobTitle" required placeholder="Job Title: " class="form-input">
+            <div class="form-valid-error" *ngIf="jobValid.touched && jobValid.invalid">Job is required!</div>
+          </div>
+          <div class="form-div">
+            <label for="phone" class="form-label">Phone: </label>
+            <input type="text" #phoneValid='ngModel' ngModel id="phone" name="phone" required minlength="9" maxlength="9" pattern="[0-9]*" placeholder="Phone:" class="form-input">
+            <div class="form-valid-error" *ngIf="phoneValid.touched && phoneValid.invalid">Phone is required and has to be digits only!!</div>
+          </div>
+          <div class="form-div">
+            <label for="imageUrl" class="form-label">imageUrl: </label>
+            <input type="text" #urlValid='ngModel' ngModel id="imageUrl" name="imageUrl" required placeholder="imageUrl: "
+              class="form-input">
+            <div class="form-valid-error" *ngIf="urlValid.touched && urlValid.invalid">Image Url is required!</div>
+          </div>
+        </div>
+        <div class="modal-form-buttons modal-div">
+          <button type="button" (click)="hideModal()" class="form-button">
+            Back
+          </button>
+          <button [disabled]="addForm.invalid" type="submit" class="form-button">
+            Add Employee
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit Employee -->
+<div class="modal" id="edit-modal" *ngSwitchCase="'edit'">
+  <div class="modal-background">
+    <div class="modal-form edit-form">
+      <div class="modal-form-head modal-div">
+        <h2>
+          {{modalTitle}}
+        </h2>
+      </div>
+      <form #editForm='ngForm'>
+        <div class="modal-form-body modal-div">
+          <div class="edit-form-img">
+            <img src="{{modalEmployee?.imageUrl}}" alt="photo" class="emp-img">
+          </div>
+          <div class="form-div">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" ngModel="{{modalEmployee?.name}}" id="name" name="name" required placeholder="Name..."
+              class="form-input">
+          </div>
+          <div class="form-div">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email" ngModel="{{modalEmployee?.email}}" id="email" name="email" required
+              placeholder="Email..." class="form-input">
+          </div>
+          <div class="form-div">
+            <label for="jobTitle" class="form-label">Job Title: </label>
+            <input type="text" ngModel="{{modalEmployee?.jobTitle}}" id="jobTitle" name="jobTitle" required
+              placeholder="Job Title..." class="form-input">
+          </div>
+          <div class="form-div">
+            <label for="phone" class="form-label">Phone: </label>
+            <input type="text" ngModel="{{modalEmployee?.phone}}" id="phone" name="phone" required
+              placeholder="Phone..." class="form-input">
+          </div>
+          <div class="form-div">
+            <label for="imageUrl" class="form-label">imageUrl: </label>
+            <input type="text" ngModel="{{modalEmployee?.imageUrl}}" id="imageUrl" name="imageUrl" required
+              placeholder="imageUrl..." class="form-input">
+          </div>
+
+          <input type="hidden" ngModel="{{modalEmployee?.id}}" id="id" name="id" required class="form-input">
+          <input type="hidden" ngModel="{{modalEmployee?.employeeCode}}" id="employeeCode" name="employeeCode" required
+            placeholder="employeeCode..." class="form-input">
+        </div>
+        <div class="modal-form-buttons modal-div">
+          <button type="button" (click)="hideModal()" class="form-button">
+            Back
+          </button>
+          <button [disabled]="editForm.invalid" (click)="editEmployee(editForm.value)" type="submit"
+            class="form-button">
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal Delete Employee -->
+<div class="modal" id="delete-modal" *ngSwitchCase="'delete'">
+  <div class="modal-background">
+    <div class="modal-form delete-form">
+      <div class="modal-form-head">
+        <h2>
+          {{modalTitle}}
+        </h2>
+      </div>
+      <form #delForm="ngForm" (ngSubmit)="deleteEmployee()">
+        <div class="modal-form-body">
+
+        </div>
+        <div class="modal-form-buttons">
+          <button type="button" class="form-button2 back-button" (click)="hideModal()">
+            Back
+          </button>
+          <button type="submit" class="form-button2 delete-button">
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</ng-container>
