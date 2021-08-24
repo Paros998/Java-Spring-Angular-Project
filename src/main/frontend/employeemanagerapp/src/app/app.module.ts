@@ -10,15 +10,17 @@ import { NavComponent } from './nav/nav.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeErrorComponent } from './employee/employee-error/employee-error.component';
 import { ModalComponent } from './modal/modal.component';
+import { ModalAddComponent } from './modal/modal-add/modal-add.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     FooterComponent,
       NavComponent,
       EmployeeComponent,
       EmployeeErrorComponent,
-      ModalComponent
+      ModalComponent,
+      ModalAddComponent
    ],
   imports: [
     BrowserModule,

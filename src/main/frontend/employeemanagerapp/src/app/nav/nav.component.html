@@ -5,12 +5,7 @@
         Employee Manager App
       </h4>
     </div>
-    <div class="nav-div add-div" id="add-div" (mouseenter)="onMouseOverAddAnim()" (mouseleave)="onMouseOutDelAnim()"
-      (click)="openModal(null,'add')">
-      <a class="add-a" id="add-a">
-        Add Employee
-      </a>
-    </div>
+      <app-modal></app-modal>
     <div class="nav-div search-div">
       <form>
         <label for="searchName" class="name-src-label">Search by name | email | phone | job:</label>

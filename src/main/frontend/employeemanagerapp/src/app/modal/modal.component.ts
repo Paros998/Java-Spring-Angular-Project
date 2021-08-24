@@ -1,9 +1,9 @@
-import { Injectable  } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { Employee } from '../employee/employee';
-import { modalControl } from './ModalControl';
+import { modalControl } from './modalControl';
 
 @Injectable(
   {
