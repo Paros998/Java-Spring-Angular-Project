@@ -1,75 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
-/******************* Animations *************************/
-@keyframes buttonActive {
-  0%{
-    color: black;
-    background: whitesmoke;
-  }
-  50%{
-    color: whitesmoke;
-    background: black;
-  }
-  100%{
-    color: black;
-    background: whitesmoke;
-  }
-}
 
-@keyframes addButtonActive {
-  0%{
-    background: dimgray;
-    color: white;
-  }
-  50%{
-    background: whitesmoke;
-    color: dimgray;
-  }
-  100%{
-    background: dimgray;
-    color: white;
-  }
-}
-.addButtonActiveClass{
-  animation: addButtonActive 2500ms infinite;
-}
-/*Global elements styled*/
-html{
-  margin: 0;
-  padding: 0;
-  height: 100% ;
+/* You can add global styles to this file, and also import other style files */
+body{
+  height: 100%;
   width: 100%;
   font-family: "Comic Sans MS", serif;
+  background: #dadada;
 }
-
-body {
-  height: 100% ;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-a{
-  text-decoration: none;
-}
-
-.normal-web{
+html{
   height: 100%;
-  z-index: 100;
-}
-
-/***************
-body styles
- */
-
-.container{
   width: 100%;
-  min-height: 85%;
-  max-height: max-content;
-  overflow: visible;
-  float: left;
-  background-image: url("https://cdn.suwalls.com/wallpapers/digital-art/modern-office-47514-1920x1080.jpg") ;
-  background-position: center ;
-  background-repeat: no-repeat ;
-  background-attachment: fixed ;
+}
+.mg-top-nav{
+  margin-top: 57px;
+}
+.mg-bottom-footer{
+  margin-bottom: -16px;
+}
+::-webkit-scrollbar{
+  width: 12px;
 }
 
+::-webkit-scrollbar-track {
+  background: #dadada;
+  border-radius: 20%;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgb(92, 92, 92);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(32, 32, 32);
+  border-radius: 40%;
+}
+
+.img-ico-md{
+  height: 80px;
+  max-width: 100%;
+  object-fit: scale-down;
+  margin: 20px;
+}
+.text-whitesmoke{
+  color: whitesmoke;
+}
+.text-black{
+  color: black;
+}

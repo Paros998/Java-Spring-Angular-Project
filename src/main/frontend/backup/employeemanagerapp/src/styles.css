@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+/******************* Animations *************************/
+@keyframes buttonActive {
+  0%{
+    color: black;
+    background: whitesmoke;
+  }
+  50%{
+    color: whitesmoke;
+    background: black;
+  }
+  100%{
+    color: black;
+    background: whitesmoke;
+  }
+}
+
+@keyframes addButtonActive {
+  0%{
+    background: dimgray;
+    color: white;
+  }
+  50%{
+    background: whitesmoke;
+    color: dimgray;
+  }
+  100%{
+    background: dimgray;
+    color: white;
+  }
+}
+.addButtonActiveClass{
+  animation: addButtonActive 2500ms infinite;
+}
+/*Global elements styled*/
+html{
+  margin: 0;
+  padding: 0;
+  height: 100% ;
+  width: 100%;
+  font-family: "Comic Sans MS", serif;
+}
+
+body {
+  height: 100% ;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.normal-web{
+  height: 100%;
+  z-index: 100;
+}
+
+/***************
+body styles
+ */
+
+.container{
+  width: 100%;
+  min-height: 85%;
+  max-height: max-content;
+  overflow: visible;
+  float: left;
+  background-image: url("https://cdn.suwalls.com/wallpapers/digital-art/modern-office-47514-1920x1080.jpg") ;
+  background-position: center ;
+  background-repeat: no-repeat ;
+  background-attachment: fixed ;
+}
+

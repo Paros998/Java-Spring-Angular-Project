@@ -1,47 +1,137 @@
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+<!-- Modals Templates -->
+<ng-template #add let-modal >
+  <div class="dark-modal">
+    <div class="modal-header" >
+      <h4 class="modal-title">Add New Employee</h4>
+      <button type="button" class="btn btn-light btn-outline-dark" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #addForm='ngForm' (ngSubmit)='addEmployee(addForm)'>
+      <div class="modal-body">
+        <label for="name" class="form-label">Name: </label>
+        <input type="text" #nameValid='ngModel' ngModel id="name" name="name" required minlength="5" pattern="^[a-zA-Z]+ [a-zA-Z]+$" placeholder="Name:  " class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="nameValid.touched && nameValid.invalid">Name is required!</div>
+          <hr class='bg-light'>
+        <label for="email" class="form-label">Email: </label>
+        <input type="email" #emailValid='ngModel' ngModel id="email" name="email" required pattern="[a-zA-Z0-9]+@[a-zA-Z.]+$" placeholder="Email: " class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="emailValid.touched && emailValid.invalid">Email is required!</div>
+          <hr class='bg-light'>
+        <label for="jobTitle" class="form-label">Job Title: </label>
+        <input type="text" #jobValid='ngModel' ngModel id="jobTitle" name="jobTitle" required minlength="5" placeholder="Job Title: " class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="jobValid.touched && jobValid.invalid">Job is required!</div>
+          <hr class='bg-light'>
+        <label for="phone" class="form-label">Phone: </label>
+        <input type="text" #phoneValid='ngModel' ngModel id="phone" name="phone" required minlength="9" maxlength="9" pattern="[0-9]*" placeholder="Phone:" class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="phoneValid.touched && phoneValid.invalid">Phone is required and has to be digits only!!</div>
+          <hr class='bg-light'>
+        <label for="imageUrl" class="form-label">imageUrl: </label>
+        <input type="text" #urlValid='ngModel' ngModel id="imageUrl" name="imageUrl" required placeholder="imageUrl: "class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="urlValid.touched && urlValid.invalid">Image Url is required!</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-outline-light" (click)="modal.close('Close click')">Close</button>
+        <button type="submit" [disabled]='addForm.invalid' class="btn btn-dark btn-outline-danger">Proceed</button>
+      </div>
+    </form>
+  </div>
 
-  <div *ngFor="let employee of getEmployeesFromApp()" class="emp-card">
-    <div class="fst emp-div">
-      <div class="img-div">
-        <img src="{{employee?.imageUrl}}" alt="employee img" class="emp-img">
-      </div>
-      <div class="name-div">
-        <h4 class="name-h4">
-          {{employee?.name}}
-        </h4>
-        <span class="employee-text">
-          {{employee?.jobTitle}}
-        </span>
-      </div>
+</ng-template>
+<ng-template #delete let-modal >
+  <div class="dark-modal">
+    <div class="modal-header" >
+      <h4 class="modal-title">Deleting employee {{deleteEmployee?.name}}</h4>
+      <button type="button" class="btn btn-light btn-outline-dark" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-    <div class="snd emp-div">
-      <div class="sub-div">
-        <span class="employee-text">Email: {{employee?.email}}</span>
+    <form #delForm='ngForm' (ngSubmit)='delEmployee()'>
+      <div class="modal-body">
       </div>
-      <div class="icon-div">
-        <img src="../assets/email.png" alt="email" class="icon email-icon">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-outline-light" (click)="modal.close('Close click')">Close</button>
+        <button type="submit"  class="btn btn-danger btn-outline-danger text-black">Proceed</button>
       </div>
-    </div>
-    <div class="trd emp-div">
-      <div class="sub-div">
-        <span class="employee-text">Phone : {{employee?.phone}}</span>
-      </div>
-      <div class="icon-div">
-        <img src="../assets/phone.png" alt="phone" class="icon phone-icon">
-      </div>
-    </div>
-    <div class="fth emp-div">
-      <div class="sc-div">
-        <img src="../assets/fb.jpg" alt="fb" class="icon fb-icon">
-        <img src="../assets/tw.jpg" alt="tw" class="icon tw-icon">
-        <img src="../assets/ggl.jpg" alt="ggl" class="icon ggl-icon">
-      </div>
-      <div class="act-but-div">
-        <a (click)="this.openModal(employee,'edit')">
-          <img src="../assets/edit.png" alt="edit" class="icon icon-hover">
-        </a>
-        <a (click)="this.openModal(employee,'delete')">
-          <img src="../assets/delete.jpg" alt="delete" class="icon icon-hover">
-        </a>
-      </div>
-    </div>
+    </form>
+  </div>
+</ng-template>
 
+<!-- Left navbar -->
+<div class='navbar-dark border-right border-light left-bar fixed-left-top p-3 ' >
+  <button class='btn btn-primary btn-dark btn-outline-light w-100 mx-auto rounded-pill' (click)="openAddModal(add)">
+    Add Employee
+  </button>
+  <hr class='bg-light'>
+  <div style="color: whitesmoke;" class='mx-auto mt-3 p-2 pl-4 bg-dark w-50 rounded-pill border-light border'>
+      FILTER BY
+  </div>
+  <nav class="navbar navbar-dark ">
+    <form class="form-inline">
+      <label for="name" class='form-label pb-0 text-whitesmoke mt-3 w-100 bg-dark rounded-pill border-light border mb-1'>Name <i class='fi-rr-angle-small-right pt-1 text-whitesmoke'></i></label>
+      <input #nInput='ngModel' ngModel (ngModelChange)="filterEmployees('name',nInput.value)" id='name' name="name" class="form-control w-100 rounded-pill " type="search" placeholder="... Name, Surname" aria-label="Search">
+
+      <label for="job" class='form-label pb-0 text-whitesmoke mt-3 w-100 bg-dark rounded-pill border-light border mb-1'>Job <i class='fi-rr-angle-small-right pt-1 text-whitesmoke '></i></label>
+      <input #jInput='ngModel' ngModel (ngModelChange)="filterEmployees('job',jInput.value)" id='job' name="job" class="form-control w-100 rounded-pill  " type="search" placeholder="... Job Title" aria-label="Search">
+
+      <label for="email" class='form-label pb-0 text-whitesmoke mt-3 w-100 bg-dark rounded-pill border-light border mb-1'>Email <i class='fi-rr-angle-small-right pt-1 text-whitesmoke '></i></label>
+      <input #eInput='ngModel' ngModel (ngModelChange)="filterEmployees('email',eInput.value)" id='email' name="email" class="form-control w-100 rounded-pill  " type="search" placeholder="... Email" aria-label="Search">
+
+      <label for="phone" class='form-label pb-0 text-whitesmoke mt-3 w-100 bg-dark rounded-pill border-light border mb-1'>Phone <i class='fi-rr-angle-small-right pt-1 text-whitesmoke '></i></label>
+      <input #pInput='ngModel' ngModel (ngModelChange)="filterEmployees('phone',pInput.value)" id='phone' name="phone" class="form-control w-100 rounded-pill  " type="search" placeholder="... Phone" aria-label="Search">
+
+      <button type="reset" (click)="getEmployees()" class="btn btn-primary btn-dark rounded-pill mx-auto mt-3 btn-outline-light">Reset</button>
+    </form>
+  </nav>
+</div>
+<!-- Main container -->
+<div class='mg-top-nav emp-manager-div' >
+  <div class="container pad-left-100" >
+    <div *ngFor="let employee of employees" class="emp-card">
+      <div class="fst emp-div">
+        <div class="img-div">
+          <img src="{{employee?.imageUrl}}" alt="employee img" class="emp-img">
+        </div>
+        <div class="name-div">
+          <h4 class='name-h4'>
+            {{employee?.name}}
+          </h4>
+          <span class="employee-text">
+            {{employee?.jobTitle}}
+          </span>
+        </div>
+      </div>
+      <div class="snd emp-div">
+        <div class="sub-div">
+          <span class="employee-text">Email: {{employee?.email}}</span>
+        </div>
+        <div class="icon-div">
+          <img src="../assets/email.png" alt="email" class="icon email-icon">
+        </div>
+      </div>
+      <div class="trd emp-div">
+        <div class="sub-div">
+          <span class="employee-text">Phone : {{employee?.phone}}</span>
+        </div>
+        <div class="icon-div">
+          <img src="../assets/phone.png" alt="phone" class="icon phone-icon">
+        </div>
+      </div>
+      <div class="fth emp-div">
+        <div class="sc-div">
+          <img src="../assets/fb.jpg" alt="fb" class="icon fb-icon">
+          <img src="../assets/tw.jpg" alt="tw" class="icon tw-icon">
+          <img src="../assets/ggl.jpg" alt="ggl" class="icon ggl-icon">
+        </div>
+        <div class="act-but-div ">
+          <a >
+            <img src="../assets/edit.png" alt="edit" class="icon icon-hover btn">
+          </a>
+          <a (click)="openDeleteModal(employee,delete)">
+            <img src="../assets/delete.jpg" alt="delete" class="icon icon-hover btn">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

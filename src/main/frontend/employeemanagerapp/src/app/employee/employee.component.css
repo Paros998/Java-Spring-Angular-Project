@@ -1,11 +1,24 @@
+@media (max-width:454px){
+  .mg-top-nav{
+    margin-top: 330px;
+  }
+  .fixed-left-top{
+    top: 80px;
+    width: 100%;
+    height: 250px;
+  }
+  .pad-left-100{
+    padding-left: 30px;
+  }
+}
+
 /* One Employee card*/
 .emp-card{
   background: lightgray ;
   float: left;
-  margin: 40px;
+  margin: 30px;
   padding: 10px;
-  height: 310px;
-  width: 200px;
+  width: 250px;
   border: 2px white solid;
   border-radius: 5%;
   opacity: 0.9;
@@ -26,17 +39,17 @@
 
 /* 4 divs of employee card*/
 .fst{
-  height: 100px;
+  height: 120px;
   padding: 2px;
 }
 .snd{
-  height: 50px;
+  height: 70px;
 }
 .trd{
-  height: 50px;
+  height: 70px;
 }
 .fth{
-  height: 50px;
+  height: 70px;
 }
 
 /* div holding image*/
@@ -73,17 +86,19 @@
   height: 100%;
   width: 80%;
   float: left;
+  padding-top: 10px;
 }
 
 .icon-div{
   height: 100%;
   width: 20%;
   float: left;
+  padding-top: 10px;
 }
 
 /* image icon */
 .icon{
-  height: 20px;
+  height: 30px;
   max-width: 100%;
   object-fit: scale-down;
   vertical-align: middle;
@@ -92,7 +107,7 @@
 }
 
 .icon-hover:hover{
-  height: 30px;
+  height: 50px;
 }
 
 /* div with social links icons*/
@@ -100,10 +115,47 @@
   height: 100%;
   width: 50%;
   float: left;
+  padding-top: 10px;
 }
 /* div with edit and delete actions*/
 .act-but-div{
   height: 100%;
   width: 50%;
   float: left;
+  padding-top: 10px;
 }
+.left-bar{
+  background-color: rgb(41, 43, 44) ;
+  background:linear-gradient(90deg,rgb(41, 43, 44) 0%,rgb(170, 170, 170)100%);
+  opacity: 0.95;
+}
+.fixed-left-top{
+  position: fixed;
+  top: 57px;
+  left: 0px;
+  width: 300px;
+  height:100%;
+}
+.emp-manager-div{
+  display: flex;
+  overflow: visible;
+  min-height: 100% ;
+  height: auto;
+  background-image: url(../../assets/employeeManager.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pad-left-100{
+  padding-left: 100px;
+}
+.dark-modal {
+  background-color: #292b2c;
+  background: linear-gradient(90deg,rgb(41, 43, 44) 0%,#3d3f41 90%, whitesmoke 100%);
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+}
+.form-valid-error{
+  color:crimson;
+}
+

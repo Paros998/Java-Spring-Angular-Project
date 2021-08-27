@@ -1,17 +1,11 @@
-<div class="nav">
-  <nav>
-    <div class="nav-div title-div">
-      <h4 class="app-title">
-        Employee Manager App
-      </h4>
-    </div>
-      <app-modal></app-modal>
-    <div class="nav-div search-div">
-      <form>
-        <label for="searchName" class="name-src-label">Search by name | email | phone | job:</label>
-        <input #key="ngModel" ngModel type="search" (ngModelChange)="searchEmployyes(key.value)" class="name-src"
-          id="searchName" name="name" placeholder="employee name .......">
-      </form>
-    </div>
-  </nav>
-</div>
+<ul ngbNav #nav='ngbNav' class="nav nav-tabs nav-pills justify-content-center nav-justified w-100 h-25 h-auto p-2 bg-dark fixed-top">
+  <li [ngbNavItem]="1" class="nav-item border-0 ml-lg2 mr-lg-2">
+    <a routerLink="" routerLinkActive='active' ngbNavLink class="btn btn-primary btn-dark ">Home Page</a>
+  </li>
+  <li [ngbNavItem]="2" class="nav-item border-0 ml-lg2 mr-lg-2">
+    <a routerLink="/employee-manager" routerLinkActive='active' ngbNavLink class=" btn btn-primary btn-dark ">Employee Manager</a>
+  </li>
+  <li [ngbNavItem]="3" class="nav-item border-0 ml-lg2 mr-lg-2">
+    <a routerLink="/shop-manager" routerLinkActive='active' ngbNavLink class=" btn btn-primary btn-dark">Shop Manager</a>
+  </li>
+</ul>

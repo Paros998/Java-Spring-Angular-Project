@@ -1,0 +1,17 @@
+<div class="nav">
+  <nav>
+    <div class="nav-div title-div">
+      <h4 class="app-title">
+        Employee Manager App
+      </h4>
+    </div>
+      <app-modal></app-modal>
+    <div class="nav-div search-div">
+      <form>
+        <label for="searchName" class="name-src-label">Search by name | email | phone | job:</label>
+        <input #key="ngModel" ngModel type="search" (ngModelChange)="searchEmployyes(key.value)" class="name-src"
+          id="searchName" name="name" placeholder="employee name .......">
+      </form>
+    </div>
+  </nav>
+</div>

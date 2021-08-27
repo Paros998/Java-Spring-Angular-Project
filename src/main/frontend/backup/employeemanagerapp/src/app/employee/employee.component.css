@@ -1,0 +1,109 @@
+/* One Employee card*/
+.emp-card{
+  background: lightgray ;
+  float: left;
+  margin: 40px;
+  padding: 10px;
+  height: 310px;
+  width: 200px;
+  border: 2px white solid;
+  border-radius: 5%;
+  opacity: 0.9;
+}
+
+.emp-card:hover{
+  opacity: 1.0;
+}
+
+.emp-div{
+  width: 100%;
+  text-align: center;
+  float: left;
+  align-content: center;
+  border-bottom: 1px white solid;
+  margin-bottom: 20px;
+}
+
+/* 4 divs of employee card*/
+.fst{
+  height: 100px;
+  padding: 2px;
+}
+.snd{
+  height: 50px;
+}
+.trd{
+  height: 50px;
+}
+.fth{
+  height: 50px;
+}
+
+/* div holding image*/
+.img-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+/*image of employee*/
+.emp-img{
+  height: 100px;
+  max-width: 100%;
+  object-fit: scale-down;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+/* div with name and job*/
+.name-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+.name-h4{
+  margin: 5px;
+}
+
+.employee-text{
+  padding-top: 20px;
+}
+
+/* 2 divs with email ,phone and icons*/
+.sub-div{
+  height: 100%;
+  width: 80%;
+  float: left;
+}
+
+.icon-div{
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+
+/* image icon */
+.icon{
+  height: 20px;
+  max-width: 100%;
+  object-fit: scale-down;
+  vertical-align: middle;
+  padding: 3px;
+  float: right;
+}
+
+.icon-hover:hover{
+  height: 30px;
+}
+
+/* div with social links icons*/
+.sc-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+/* div with edit and delete actions*/
+.act-but-div{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
