@@ -9,5 +9,5 @@
 }
 .bg-gradient{
   background-color: rgb(41, 43, 44);
-  background: linear-gradient(90deg,rgb(41, 43, 44) 0%,#3d3f41 90%,rgb(170, 170, 170)100%);
+  background: linear-gradient(90deg,rgb(41, 43, 44) 0%,#3d3f41 70%,rgb(170, 170, 170)100%);
 }

@@ -1,6 +1,5 @@
-package com.patryk.repository;
+package com.patryk.student;
 
-import com.patryk.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

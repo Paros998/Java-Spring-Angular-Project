@@ -1,8 +1,6 @@
-package com.patryk.service;
+package com.patryk.student;
 
 
-import com.patryk.model.Student;
-import com.patryk.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +17,10 @@ public class StudentService {
     @Autowired
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
+    }
+
+    public Student getStudent(Long studentId) {
+        return studentRepository.findById(studentId).orElseThrow(IllegalStateException::new);
     }
 
     public List<Student> getStudents() {

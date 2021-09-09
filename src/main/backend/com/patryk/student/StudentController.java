@@ -1,14 +1,12 @@
-package com.patryk.controller;
+package com.patryk.student;
 
-import com.patryk.model.Student;
-import com.patryk.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/student")
+@RequestMapping(path = "management/student/")
 public class StudentController {
     private final StudentService studentService;
 
@@ -17,22 +15,27 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping()
+    @GetMapping(path = "all")
     public List<Student> getStudents() {
         return studentService.getStudents();
     }
 
-    @PostMapping
+    @GetMapping(path = "{studentId}")
+    public Student getStudent(@PathVariable("studentId") Long studentId) {
+        return studentService.getStudent(studentId);
+    }
+
+    @PostMapping(path = "add")
     public void registerNewStudent(@RequestBody Student student) {
         studentService.addNewStudent(student);
     }
 
-    @DeleteMapping(path = "{studentId}")
+    @DeleteMapping(path = "delete/{studentId}")
     public void deleteStudent(@PathVariable("studentId") Long studentId) {
         studentService.deleteStudent(studentId);
     }
 
-    @PutMapping(path = "{studentId}")
+    @PutMapping(path = "update/{studentId}")
     public void updateStudent(
             @PathVariable("studentId") Long studentId,
             @RequestParam(required = false) String name,
@@ -40,5 +43,4 @@ public class StudentController {
     ) {
         studentService.updateStudent(studentId, name, email);
     }
-
 }

@@ -1,4 +1,4 @@
-package com.patryk.model;
+package com.patryk.employee;
 
 import javax.persistence.*;
 import java.io.Serializable;

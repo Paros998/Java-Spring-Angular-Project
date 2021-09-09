@@ -13,10 +13,20 @@ import { EmployeeService } from './employee.service';
 })
 export class EmployeeComponent implements OnInit {
   public employees: Employee[] = [];
-  public deleteEmployee: Employee ;
+  public deleteableEmployee: Employee ;
+  public editableEmployee: Employee;
 
   constructor(private service:EmployeeService,private toastService:ToastService,private modalService:NgbModal) {
-    this.deleteEmployee = {
+    this.deleteableEmployee= {
+      name :'',
+      email: '',
+      employeeCode: '',
+      id: 0,
+      imageUrl:'',
+      jobTitle:'',
+      phone: ''
+    };
+    this.editableEmployee = {
       name :'',
       email: '',
       employeeCode: '',
@@ -35,8 +45,12 @@ export class EmployeeComponent implements OnInit {
     this.modalService.open(add);
   }
   public openDeleteModal(employee: Employee,deleted:any){
-    this.deleteEmployee = employee;
+    this.deleteableEmployee = employee;
     this.modalService.open(deleted);
+  }
+  public openEditModal(employee: Employee,edited:any){
+    this.editableEmployee = employee;
+    this.modalService.open(edited);
   }
 
   public getEmployees():void{
@@ -64,15 +78,29 @@ export class EmployeeComponent implements OnInit {
       }
     );
   }
-  public delEmployee(){
-    this.service.deleteEmployee(this.deleteEmployee?.id).subscribe(
+
+  public editEmployee(employee:Employee){
+    this.service.updateEmployee(employee).subscribe(
+      (response: Employee) => {
+        this.getEmployees();
+        this.toastService.show('Edit completed 👍',`Employee ${response.name} have been succesfully updated in the database!`)
+        this.modalService.dismissAll();
+      },(error: HttpErrorResponse) =>{
+        this.toastService.show(`Couldn't edit employee ${this.editableEmployee.name}!`,error.message);
+        this.modalService.dismissAll();
+      }
+    );
+  }
+
+  public deleteEmployee(){
+    this.service.deleteEmployee(this.deleteableEmployee?.id).subscribe(
       (response: void) => {
-        this.toastService.show("Delete completed 👍",`Employee ${this.deleteEmployee.name} has been deleted succesfully!`);
+        this.toastService.show("Delete completed 👍",`Employee ${this.deleteableEmployee.name} has been deleted succesfully!`);
         this.modalService.dismissAll();
         this.getEmployees();
       },
       (error: HttpErrorResponse) =>{
-        this.toastService.show(`Couldn't delete employee ${this.deleteEmployee.name}!`,error.message);
+        this.toastService.show(`Couldn't delete employee ${this.deleteableEmployee.name}!`,error.message);
         this.modalService.dismissAll();
       }
     );

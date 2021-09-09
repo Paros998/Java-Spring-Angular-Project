@@ -15,11 +15,11 @@
         <div class="form-valid-error" *ngIf="nameValid.touched && nameValid.invalid">Name is required!</div>
           <hr class='bg-light'>
         <label for="email" class="form-label">Email: </label>
-        <input type="email" #emailValid='ngModel' ngModel id="email" name="email" required pattern="[a-zA-Z0-9]+@[a-zA-Z.]+$" placeholder="Email: " class="form-input rounded-pill border-light border">
+        <input type="email" #emailValid='ngModel' ngModel id="email" name="email" required pattern="[a-zA-Z0-9-_]+@[a-zA-Z.]+$" placeholder="Email: " class="form-input rounded-pill border-light border">
         <div class="form-valid-error" *ngIf="emailValid.touched && emailValid.invalid">Email is required!</div>
           <hr class='bg-light'>
         <label for="jobTitle" class="form-label">Job Title: </label>
-        <input type="text" #jobValid='ngModel' ngModel id="jobTitle" name="jobTitle" required minlength="5" placeholder="Job Title: " class="form-input rounded-pill border-light border">
+        <input type="text" #jobValid='ngModel' ngModel id="jobTitle" name="jobTitle" required minlength="2" placeholder="Job Title: " class="form-input rounded-pill border-light border">
         <div class="form-valid-error" *ngIf="jobValid.touched && jobValid.invalid">Job is required!</div>
           <hr class='bg-light'>
         <label for="phone" class="form-label">Phone: </label>
@@ -36,19 +36,64 @@
       </div>
     </form>
   </div>
-
 </ng-template>
+
+<ng-template #edit let-modal >
+  <div class="dark-modal">
+    <div class="modal-header " >
+      <div class='w-100'>
+        <h4 class="modal-title">Editing Employee {{editableEmployee?.name}}</h4>
+      </div>
+      <div class="w-100">
+        <img src="{{editableEmployee?.imageUrl}}" alt="employee img" class="emp-img">
+      </div>
+      <div class='w-25'>
+        <button type="button" class="btn btn-light btn-outline-dark" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <form #editForm='ngForm' (ngSubmit)='editEmployee(editForm.value)'>
+      <div class="modal-body">
+        <label for="name" class="form-label">Name: </label>
+        <input type="text" #nameValid='ngModel' ngModel="{{editableEmployee?.name}}" id="name" name="name" required minlength="5" pattern="^[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]+ [a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$" placeholder="Name:  " class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="nameValid.touched && nameValid.invalid">Name is required!</div>
+          <hr class='bg-light'>
+        <label for="email" class="form-label">Email: </label>
+        <input type="email" #emailValid='ngModel' ngModel="{{editableEmployee?.email}}" id="email" name="email" required pattern="[a-zA-Z0-9-_żźćńółęąśŻŹĆĄŚĘŁÓŃ]+@[a-zA-Z.żźćńółęąśŻŹĆĄŚĘŁÓŃ]+$" placeholder="Email: " class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="emailValid.touched && emailValid.invalid">Email is required!</div>
+          <hr class='bg-light'>
+        <label for="jobTitle" class="form-label">Job Title: </label>
+        <input type="text" #jobValid='ngModel' ngModel="{{editableEmployee?.jobTitle}}" id="jobTitle" name="jobTitle" required minlength="2" placeholder="Job Title: " class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="jobValid.touched && jobValid.invalid">Job is required!</div>
+          <hr class='bg-light'>
+        <label for="phone" class="form-label">Phone: </label>
+        <input type="text" #phoneValid='ngModel' ngModel="{{editableEmployee?.phone}}" id="phone" name="phone" required minlength="9" maxlength="9" pattern="[0-9]*" placeholder="Phone:" class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="phoneValid.touched && phoneValid.invalid">Phone is required and has to be digits only!!</div>
+          <hr class='bg-light'>
+        <label for="imageUrl" class="form-label">imageUrl: </label>
+        <input type="text" #urlValid='ngModel' ngModel="{{editableEmployee?.imageUrl}}" id="imageUrl" name="imageUrl" required placeholder="imageUrl: "class="form-input rounded-pill border-light border">
+        <div class="form-valid-error" *ngIf="urlValid.touched && urlValid.invalid">Image Url is required!</div>
+        <input type="hidden" ngModel="{{editableEmployee?.id}}" required name="id">
+        <input type="hidden" ngModel="{{editableEmployee?.employeeCode}}" required name="employeeCode">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-outline-light" (click)="modal.close('Close click')">Close</button>
+        <button type="submit" [disabled]='editForm.invalid' class="btn btn-dark btn-outline-danger">Proceed</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
 <ng-template #delete let-modal >
   <div class="dark-modal">
     <div class="modal-header" >
-      <h4 class="modal-title">Deleting employee {{deleteEmployee?.name}}</h4>
+      <h4 class="modal-title text-break">Deleting employee {{deleteableEmployee?.name}}</h4>
       <button type="button" class="btn btn-light btn-outline-dark" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form #delForm='ngForm' (ngSubmit)='delEmployee()'>
-      <div class="modal-body">
-      </div>
+    <form #delForm='ngForm' (ngSubmit)='deleteEmployee()'>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-outline-light" (click)="modal.close('Close click')">Close</button>
         <button type="submit"  class="btn btn-danger btn-outline-danger text-black">Proceed</button>
@@ -124,7 +169,7 @@
           <img src="../assets/ggl.jpg" alt="ggl" class="icon ggl-icon">
         </div>
         <div class="act-but-div ">
-          <a >
+          <a (click)="openEditModal(employee,edit)">
             <img src="../assets/edit.png" alt="edit" class="icon icon-hover btn">
           </a>
           <a (click)="openDeleteModal(employee,delete)">

@@ -1,4 +1,4 @@
-package com.patryk.model;
+package com.patryk.student;
 
 import javax.persistence.*;
 import java.time.LocalDate;
